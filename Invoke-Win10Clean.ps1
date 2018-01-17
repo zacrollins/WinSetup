@@ -70,7 +70,7 @@ $tweaks = @(
 	"ShowTaskManagerDetails"        # "HideTaskManagerDetails",
 	"ShowFileOperationsDetails",    # "HideFileOperationsDetails",
 	# "EnableFileDeleteConfirm",    # "DisableFileDeleteConfirm",
-	"HideTaskbarSearchBox",         # "ShowTaskbarSearchBox",
+	# "HideTaskbarSearchBox",       # "ShowTaskbarSearchBox",
 	# "HideTaskView",               # "ShowTaskView",
 	# "ShowSmallTaskbarIcons",      # "ShowLargeTaskbarIcons",
 	"ShowTaskbarTitles",            # "HideTaskbarTitles",
@@ -111,7 +111,7 @@ $tweaks = @(
 	"UninstallThirdPartyBloat",     # "InstallThirdPartyBloat",
 	# "UninstallWindowsStore",      # "InstallWindowsStore",
 	"DisableXboxFeatures",          # "EnableXboxFeatures",
-	"DisableAdobeFlash",            # "EnableAdobeFlash",
+	# "DisableAdobeFlash",          # "EnableAdobeFlash",
 	# "UninstallMediaPlayer",       # "InstallMediaPlayer",
 	# "UninstallWorkFolders",       # "InstallWorkFolders",
 	# "InstallLinuxSubsystem",      # "UninstallLinuxSubsystem",
@@ -136,8 +136,8 @@ $tweaks = @(
 	# "UnpinTaskbarIcons",
 
 	### Auxiliary Functions ###
-	"WaitForKey",
-	"Restart"
+	"WaitForKey"
+	# "Restart"
 )
 
 
