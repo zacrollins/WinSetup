@@ -29,10 +29,18 @@ cinst googlechrome
 #region Runtimes
 cinst flashplayerplugin
 cinst jre8
-cinst vcredist-all
+#cinst vcredist-all
 
-# Taskbar items
-Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles86)\Google\Chrome\Application\chrome.exe"
+# Tweaks
+# download Invoke-Win10Clean.ps1 and run
+$outPath = 'C:\Utils\'
+$outFile = 'Invoke-Win10Clean.ps1'
+$dlFile = Join-Path -Path $outPath -ChildPath $outFile
+if (-not(test-path $outPath)) {
+    New-Item -Path $outPath -ItemType Directory
+}
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/zacrollins/WinSetup/master/Invoke-Win10Clean.ps1' -UseBasicParsing -OutFile $dlFile
+Invoke-Expression $dlFile
 
 # Install Windows Update and reboot
 Install-WindowsUpdate -acceptEula
