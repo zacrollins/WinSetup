@@ -135,8 +135,9 @@ $tweaks = @(
 	# "UnpinStartMenuTiles",
 	# "UnpinTaskbarIcons",
 
-	### Auxiliary Functions ###
-	"WaitForKey"
+    ### Auxiliary Functions ###
+    "TweaksEnd"
+	# "WaitForKey"
 	# "Restart"
 )
 
@@ -2150,6 +2151,11 @@ Function RequireAdmin {
 		Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
 		Exit
 	}
+}
+# Write Outpu that Tweaks are complete
+function TweaksEnd {
+    Write-Host
+    Write-Host "Win10 Cleanup has completed."
 }
 
 # Wait for key press
