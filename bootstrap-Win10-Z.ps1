@@ -9,5 +9,3 @@ Enable-PSRemoting -Force
 
 # Passing packages to install from commandline
 Install-BoxstarterPackage -PackageName $PackageName -DisableReboots
-
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('http://boxstarter.org/bootstrapper.ps1'))

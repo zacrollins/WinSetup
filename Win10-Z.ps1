@@ -1,12 +1,5 @@
-# The following settings will ask you for your windows password and then
-# successfuly reboot the machine everytime it needs to. After Boxstarter is
-# done autologin won't be enabled.
-$Boxstarter.RebootOk=$false # Allow reboots?
-$Boxstarter.NoPassword=$false # Is this a machine with no login password?
-$Boxstarter.AutoLogin=$false # Save my password securely and auto-login after a reboot
-
 # Allow running PowerShell scripts
-Update-ExecutionPolicy Unrestricted
+Update-ExecutionPolicy RemoteSigned
 
 # Power Options - disable hibernation and disable monitor standby
 Write-Host "Configuring power options..."
@@ -17,8 +10,16 @@ powercfg -h off
 # Enable Remote Desktop
 Enable-RemoteDesktop
 
+Enable-PSRemoting
+
 # Disables the Bing Internet Search when searching from the search field in the Taskbar or Start Menu.
 Disable-BingSearch
+
+# Disable GameBar tips
+Disable-GameBarTips
+
+# Enable Microsoft update
+Enable-MicrosoftUpdate
 
 # Web Browsers
 cinst googlechrome

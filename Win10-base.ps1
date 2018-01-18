@@ -1,10 +1,3 @@
-# The following settings will ask you for your windows password and then
-# successfuly reboot the machine everytime it needs to. After Boxstarter is
-# done autologin won't be enabled.
-$Boxstarter.RebootOk=$true # Allow reboots?
-$Boxstarter.NoPassword=$false # Is this a machine with no login password?
-$Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
-
 # Allow running PowerShell scripts
 Update-ExecutionPolicy Unrestricted
 
@@ -22,6 +15,12 @@ Enable-RemoteDesktop
 
 # Disables the Bing Internet Search when searching from the search field in the Taskbar or Start Menu.
 Disable-BingSearch
+
+# Disable GameBar tips
+Disable-GameBarTips
+
+# Enable Microsoft update
+Enable-MicrosoftUpdate
 
 # Web Browsers
 cinst googlechrome
