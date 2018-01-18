@@ -2,7 +2,7 @@
 Windows workstation setup automation using boxstarter and chocolatey
 before running, set execution policy unrestricted:
 ```
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy RemoteSigned
 ```
 For Base:
 ```
