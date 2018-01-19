@@ -2156,6 +2156,7 @@ Function RequireAdmin {
 function TweaksEnd {
     Write-Host
     Write-Host "Win10 Cleanup has completed."
+    Write-Host "Please restart your computer"
 }
 
 # Wait for key press
