@@ -32,7 +32,6 @@ cinst jre8
 
 # Install Windows Update and reboot
 Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
 
 # Tweaks
 # download Invoke-Win10Clean.ps1 and run
@@ -44,6 +43,3 @@ if (-not(test-path $outPath)) {
 }
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/zacrollins/WinSetup/master/Invoke-Win10Clean.ps1' -UseBasicParsing -OutFile $dlFile
 Invoke-Expression $dlFile
-
-Write-Output
-Write-Output "Boxstarter workstation setup complete!"
