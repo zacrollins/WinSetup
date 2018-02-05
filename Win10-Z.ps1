@@ -47,7 +47,7 @@ cinst vcredist-all
 # Ops software & tools
 cinst sql-server-management-studio
 cinst rsat
-cinst git -params="'/WindowsTerminal /NoShellIntegration'"
+cinst git --params="'/WindowsTerminal /NoShellIntegration'"
 cinst git-credential-manager-for-windows
 cinst nmap
 cinst wireshark
