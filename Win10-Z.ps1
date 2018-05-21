@@ -8,7 +8,7 @@ powercfg -change -standby-timeout-ac 0
 powercfg -h off
 
 # Enable Remote Desktop
-Enable-RemoteDesktop
+#Enable-RemoteDesktop
 
 Enable-PSRemoting
 
@@ -47,7 +47,7 @@ cinst vcredist-all
 # Ops software & tools
 cinst sql-server-management-studio
 cinst rsat
-cinst git --params="'/WindowsTerminal /NoShellIntegration'"
+cinst git --params="'/WindowsTerminal /NoShellIntegration /SChannel'"
 cinst git-credential-manager-for-windows
 cinst nmap
 cinst wireshark
