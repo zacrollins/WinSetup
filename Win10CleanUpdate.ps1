@@ -24,7 +24,7 @@ $tweaks = @(
 	"DisableTailoredExperiences",   # "EnableTailoredExperiences",
 	"DisableAdvertisingID",         # "EnableAdvertisingID",
 	"DisableWebLangList",           # "EnableWebLangList",
-	"DisableCortana",               # "EnableCortana",
+	# "DisableCortana",             # "EnableCortana",
 	"DisableErrorReporting",        # "EnableErrorReporting",
 	# "SetP2PUpdateLocal",          # "SetP2PUpdateInternet",
 	"DisableDiagTrack",             # "EnableDiagTrack",
@@ -33,11 +33,11 @@ $tweaks = @(
 	### Security Tweaks ###
 	# "SetUACLow",                  # "SetUACHigh",
 	# "EnableSharingMappedDrives",  # "DisableSharingMappedDrives",
-	"DisableAdminShares",           # "EnableAdminShares",
+	# "DisableAdminShares",         # "EnableAdminShares",
 	# "DisableSMB1",                # "EnableSMB1",
 	# "DisableSMBServer",           # "EnableSMBServer",
 	# "DisableLLMNR",               # "EnableLLMNR",
-	"SetCurrentNetworkPrivate",     # "SetCurrentNetworkPublic",
+	# "SetCurrentNetworkPrivate",   # "SetCurrentNetworkPublic",
 	# "SetUnknownNetworksPrivate",  # "SetUnknownNetworksPublic",
 	# "DisableNetDevicesAutoInst",  # "EnableNetDevicesAutoInst",
 	# "EnableCtrldFolderAccess",    # "DisableCtrldFolderAccess",
@@ -58,7 +58,7 @@ $tweaks = @(
 	# "DisableHomeGroups",          # "EnableHomeGroups",
 	"DisableSharedExperiences",     # "EnableSharedExperiences",
 	"DisableRemoteAssistance",      # "EnableRemoteAssistance",
-	"EnableRemoteDesktop",          # "DisableRemoteDesktop",
+	# "EnableRemoteDesktop",        # "DisableRemoteDesktop",
 	"DisableAutoplay",              # "EnableAutoplay",
 	"DisableAutorun",               # "EnableAutorun",
 	# "EnableStorageSense",         # "DisableStorageSense",
@@ -72,9 +72,9 @@ $tweaks = @(
 	# "DisableFastStartup",         # "EnableFastStartup",
 
 	### UI Tweaks ###
-	# "DisableActionCenter",        # "EnableActionCenter",
+	"DisableActionCenter",          # "EnableActionCenter",
 	"HideAccountProtectionWarn",    # "ShowAccountProtectionWarn",
-	"DisableLockScreen",            # "EnableLockScreen",
+	# "DisableLockScreen",          # "EnableLockScreen",
 	# "DisableLockScreenRS1",       # "EnableLockScreenRS1",
 	"HideNetworkFromLockScreen",    # "ShowNetworkOnLockScreen",
 	"HideShutdownFromLockScreen",   # "ShowShutdownOnLockScreen",
@@ -82,9 +82,9 @@ $tweaks = @(
 	"ShowTaskManagerDetails"        # "HideTaskManagerDetails",
 	"ShowFileOperationsDetails",    # "HideFileOperationsDetails",
 	# "EnableFileDeleteConfirm",    # "DisableFileDeleteConfirm",
-	"HideTaskbarSearch",            # "ShowTaskbarSearchIcon",      # "ShowTaskbarSearchBox",
-	"HideTaskView",                 # "ShowTaskView",
-	"ShowSmallTaskbarIcons",        # "ShowLargeTaskbarIcons",
+	# "HideTaskbarSearch",          # "ShowTaskbarSearchIcon",      # "ShowTaskbarSearchBox",
+	# "HideTaskView",               # "ShowTaskView",
+	# "ShowSmallTaskbarIcons",      # "ShowLargeTaskbarIcons",
 	"SetTaskbarCombineWhenFull",    # "SetTaskbarCombineNever",     # "SetTaskbarCombineAlways",
 	"HideTaskbarPeopleIcon",        # "ShowTaskbarPeopleIcon",
 	"ShowTrayIcons",                # "HideTrayIcons",
@@ -102,7 +102,7 @@ $tweaks = @(
 	"HideSyncNotifications"         # "ShowSyncNotifications",
 	"HideRecentShortcuts",          # "ShowRecentShortcuts",
 	"SetExplorerThisPC",            # "SetExplorerQuickAccess",
-	# "ShowThisPCOnDesktop",        # "HideThisPCFromDesktop",
+	"ShowThisPCOnDesktop",          # "HideThisPCFromDesktop",
 	# "ShowUserFolderOnDesktop",    # "HideUserFolderFromDesktop",
 	"HideDesktopFromThisPC",        # "ShowDesktopInThisPC",
 	# "HideDesktopFromExplorer",    # "ShowDesktopInExplorer",
@@ -128,9 +128,9 @@ $tweaks = @(
 	"UninstallMsftBloat",           # "InstallMsftBloat",
 	"UninstallThirdPartyBloat",     # "InstallThirdPartyBloat",
 	# "UninstallWindowsStore",      # "InstallWindowsStore",
-	# "DisableXboxFeatures",        # "EnableXboxFeatures",
-	"DisableAdobeFlash",            # "EnableAdobeFlash",
-	"DisableEdgeShortcutCreation",  # "EnableEdgeShortcutCreation",
+	"DisableXboxFeatures",          # "EnableXboxFeatures",
+	# "DisableAdobeFlash",          # "EnableAdobeFlash",
+	# "DisableEdgeShortcutCreation",# "EnableEdgeShortcutCreation",
 	# "UninstallMediaPlayer",       # "InstallMediaPlayer",
 	# "UninstallInternetExplorer",  # "InstallInternetExplorer",
 	# "UninstallWorkFolders",       # "InstallWorkFolders",
@@ -141,7 +141,6 @@ $tweaks = @(
 	# "UninstallPDFPrinter",        # "InstallPDFPrinter",
 	"UninstallXPSPrinter",          # "InstallXPSPrinter",
 	"RemoveFaxPrinter",             # "AddFaxPrinter",
-	# "UninstallFaxAndScan",        # "InstallFaxAndScan",
 
 	### Server Specific Tweaks ###
 	# "HideServerManagerOnLogin",   # "ShowServerManagerOnLogin",
@@ -156,7 +155,7 @@ $tweaks = @(
 	# "UnpinTaskbarIcons",
 
 	### Auxiliary Functions ###
-	# "WaitForKey",
+	"WaitForKey",
 	"Restart"
 )
 
@@ -2327,18 +2326,6 @@ Function RemoveFaxPrinter {
 Function AddFaxPrinter {
 	Write-Output "Adding Default Fax Printer..."
 	Add-Printer -Name "Fax" -DriverName "Microsoft Shared Fax Driver" -PortName "SHRFAX:" -ErrorAction SilentlyContinue
-}
-
-# Uninstall Windows Fax and Scan Services
-Function UninstallFaxAndScan {
-	Write-Output "Uninstalling Windows Fax and Scan Services..."
-	Disable-WindowsOptionalFeature -Online -FeatureName "FaxServicesClientPackage" -NoRestart -WarningAction SilentlyContinue | Out-Null
-}
-
-# Install Windows Fax and Scan Services
-Function InstallFaxAndScan {
-	Write-Output "Installing Windows Fax and Scan Services..."
-	Enable-WindowsOptionalFeature -Online -FeatureName "FaxServicesClientPackage" -NoRestart -WarningAction SilentlyContinue | Out-Null
 }
 
 
