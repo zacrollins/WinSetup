@@ -1,69 +1,62 @@
-# Allow running PowerShell scripts
-Update-ExecutionPolicy RemoteSigned
+# --------------------------------------
+# BoxStarter script to setup workstation
+# Author: Zac Rollins
+# --------------------------------------
 
-# Power Options - disable hibernation and disable monitor standby
-Write-Host "Configuring power options..."
-powercfg -change -monitor-timeout-ac 0
-powercfg -change -standby-timeout-ac 0
-powercfg -h off
+Disable-UAC
 
-# Enable Remote Desktop
-Enable-RemoteDesktop
+# Windows Explorer settings
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
 
 Enable-PSRemoting
-
-# Disables the Bing Internet Search when searching from the search field in the Taskbar or Start Menu.
 Disable-BingSearch
-
-# Disable GameBar tips
 Disable-GameBarTips
 
-# Enable Microsoft update
-Enable-MicrosoftUpdate
+# File Explorer Settings
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneExpandToCurrentFolder -Value 1
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneShowAllFolders -Value 1
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Value 1
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
 
 # Web Browsers
-cinst googlechrome
+cinst -y googlechrome
+cinst -y firefox
 
 # NuGet
 Install-PackageProvider -Name "nuget" -Force
-cinst NuGet.CommandLine
+cinst -y NuGet.CommandLine
 
-# Install Windows Update and reboot
-Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
+# DotNetAndPowershell
+cinst -y PowerShell
+cinst -y powershell-core
+cinst -y DotNet4.7
 
-#region DotNetAndPowershell
-cinst PowerShell
-cinst powershell-core
-cinst DotNet4.7
-#endregion
-
-#region Runtimes
-cinst flashplayerplugin
-cinst jre8
-cinst vcredist-all
-#endregion
+# HyperV and WSL
+choco install -y Microsoft-Hyper-V-All -source windowsFeatures
+choco install -y Microsoft-Windows-Subsystem-Linux -source windowsfeatures
+# Ubuntu
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile ~/Ubuntu.appx -UseBasicParsing
+Add-AppxPackage -Path ~/Ubuntu.appx
 
 # Ops software & tools
-cinst sql-server-management-studio
-cinst rsat
-cinst git -params="'/WindowsTerminal /NoShellIntegration'"
-cinst git-credential-manager-for-windows
-cinst nmap
-cinst wireshark
-cinst winscp
-cinst conemu
-cinst 7zip.commandline
-cinst 7zip
-cinst rdm
-cinst lastpass
-cinst visualStudioCode
-cinst postman
-cinst OpenSSL.Light
-cinst dotnetcore-sdk
-cinst hyper
-cinst nodejs
-cinst pstools
+cinst -y sql-server-management-studio
+cinst -y rsat
+cinst -y git -params="'/WindowsTerminal /NoShellIntegration /SChannel'"
+cinst -y git-credential-manager-for-windows
+cinst -y nmap
+cinst -y wireshark
+cinst -y winscp
+cinst -y conemu
+cinst -y 7zip.commandline
+cinst -y 7zip
+cinst -y rdcman
+cinst -y keepass
+cinst -y keepass-rpc
+cinst -y visualStudioCode
+cinst -y postman
+cinst -y OpenSSL.Light
+cinst -y dotnetcore-sdk
+cinst -y hyper
 
 # Tweaks
 # download Invoke-Win10Clean.ps1 and run
@@ -74,12 +67,9 @@ if (-not(test-path $outPath)) {
     New-Item -Path $outPath -ItemType Directory
 }
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/zacrollins/WinSetup/master/Invoke-Win10Clean.ps1' -UseBasicParsing -OutFile $dlFile
-Invoke-Expression $dlFile
+Write-Verbose -Verbose -Message "Downloaded Invoke-Win10Clean.ps1 to c:\Utils. Inspect and run manually"
 
-# Make sure some windows update didn't creep on us after installing all
-# those apps
+Enable-UAC
+Enable-RemoteDesktop
+Enable-MicrosoftUpdate
 Install-WindowsUpdate -acceptEula
-if (Test-PendingReboot) { Invoke-Reboot }
-
-# Taskbar items
-Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles86)\Google\Chrome\Application\chrome.exe"
