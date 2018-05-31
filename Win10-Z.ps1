@@ -52,7 +52,8 @@ cinst -y 7zip
 cinst -y rdcman
 cinst -y keepass
 cinst -y keepass-rpc
-cinst -y visualStudioCode
+cinst -y vscode
+cinst -y firacode
 cinst -y postman
 cinst -y OpenSSL.Light
 cinst -y dotnetcore-sdk
