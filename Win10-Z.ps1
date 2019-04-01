@@ -43,13 +43,14 @@ cinst -y bitwarden-cli
 # powershell modules
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 $modules = @(
-    Az
-    Az.Security
-    AzureAD
-    SqlServer
-    Lability
-    InvokeBuild
-    importexcel
+    'Az'
+    'Az.Security'
+    'AzureAD'
+    'SqlServer'
+    'Lability'
+    'InvokeBuild'
+    'importexcel'
+    'PSWindowsUpdate'
 )
 foreach ($module in $modules) {
     Write-Verbose -Message "Installing [$module]..." -Verbose
