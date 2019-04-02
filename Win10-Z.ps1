@@ -51,6 +51,7 @@ $modules = @(
     'InvokeBuild'
     'importexcel'
     'PSWindowsUpdate'
+    'posh-git'
 )
 foreach ($module in $modules) {
     Write-Verbose -Message "Installing [$module]..." -Verbose
