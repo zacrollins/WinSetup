@@ -23,22 +23,30 @@ cinst -y DotNet4.7
 
 # Ops software & tools
 cinst -y sql-server-management-studio
+cinst -y azure-data-studio
 cinst -y rsat
 cinst -y git -params="'/WindowsTerminal /NoShellIntegration'"
 cinst -y git-credential-manager-for-windows
-cinst -y nmap
-cinst -y wireshark
 cinst -y 7zip.commandline
 cinst -y 7zip
 cinst -y rdcman
+cinst -y colortool
+cinst -y keypirinha
 cinst -y vscode
 cinst -y firacode
+cinst -y hackfont
 cinst -y postman
 cinst -y OpenSSL.Light
 cinst -y dotnetcore-sdk
-cinst -y terminus
 cinst -y bitwarden
 cinst -y bitwarden-cli
+cinst -y authy-desktop
+cinst -y microsoftazurestorageexplorer
+cinst -y microsoft-teams
+cinst -y slack
+
+# cinst -y nmap
+# cinst -y wireshark
 
 # powershell modules
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
