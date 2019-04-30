@@ -9,6 +9,10 @@
 # Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Value 1
 # Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
 # Web Browsers
 cinst -y googlechrome
 
