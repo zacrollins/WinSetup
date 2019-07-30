@@ -28,7 +28,6 @@ cinst -y DotNet4.7
 # Ops software & tools
 cinst -y sql-server-management-studio
 cinst -y azure-data-studio
-cinst -y rsat
 cinst -y git -params="'/WindowsTerminal /NoShellIntegration'"
 cinst -y git-credential-manager-for-windows
 cinst -y 7zip.commandline
@@ -48,9 +47,14 @@ cinst -y authy-desktop
 cinst -y microsoftazurestorageexplorer
 cinst -y microsoft-teams
 cinst -y slack
+cinst -y nmap
 
+# cinst -y rsat
 # cinst -y nmap
 # cinst -y wireshark
+
+# Install all RSAT tools
+Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability –Online
 
 # powershell modules
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
@@ -64,6 +68,7 @@ $modules = @(
     'importexcel'
     'PSWindowsUpdate'
     'posh-git'
+    'PoshNmap'
 )
 foreach ($module in $modules) {
     Write-Verbose -Message "Installing [$module]..." -Verbose
