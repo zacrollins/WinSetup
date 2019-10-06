@@ -23,33 +23,30 @@ cinst -y NuGet.CommandLine
 # DotNetAndPowershell
 cinst -y PowerShell
 cinst -y powershell-core
-cinst -y DotNet4.7
+cinst -y dotnetfx
 
 # Ops software & tools
-cinst -y sql-server-management-studio
-cinst -y azure-data-studio
-cinst -y git -params="'/WindowsTerminal /NoShellIntegration'"
-cinst -y git-credential-manager-for-windows
 cinst -y 7zip.commandline
 cinst -y 7zip
-cinst -y rdcman
-cinst -y colortool
-cinst -y keypirinha
-cinst -y vscode
-cinst -y firacode
-cinst -y hackfont
-cinst -y postman
-cinst -y OpenSSL.Light
-cinst -y dotnetcore-sdk
-cinst -y bitwarden
-cinst -y bitwarden-cli
+cinst -y altdrag
 cinst -y authy-desktop
+cinst -y azure-data-studio
+cinst -y firacode
+cinst -y git -params="'/WindowsTerminal /NoShellIntegration'"
+cinst -y git-credential-manager-for-windows
+cinst -y hackfont
+cinst -y keypirinha
 cinst -y microsoftazurestorageexplorer
-cinst -y microsoft-teams
-cinst -y slack
 cinst -y nmap
+cinst -y nuget.commandline
+cinst -y OpenSSL.Light
+cinst -y postman
+cinst -y rdcman
+cinst -y sql-server-management-studio
+cinst -y vscode
 
-# cinst -y rsat
+# cinst -y microsoft-teams
+# cinst -y slack
 # cinst -y nmap
 # cinst -y wireshark
 
